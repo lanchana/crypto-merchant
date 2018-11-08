@@ -1,0 +1,38 @@
+<div class="update-form mat-elevation-z8">
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-12">
+      <input matInput type="text" formControlName="merchantType" placeholder="Merchant Type">
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <input matInput type="text" formControlName="itemSold" placeholder="Item Sold">
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <input matInput type="number" formControlName="amountInvoiced" placeholder="Amount Invoiced">
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <mat-select placeholder="Preferred Currency Type" formControlName="currencyUsedForPayments">
+        <mat-option *ngFor="let args of paymentTypes" [value]="args">{{args}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-inline">
+      <div class="col-6 text-left">
+        <button mat-raised-button type="button" (click)="goBack()">
+          Back
+        </button>
+      </div>
+      <div class="col-6 text-right">
+        <button mat-raised-button type="submit" *ngIf="!id" [disabled]="updateForm.invalid">
+          Add
+        </button>
+
+        <button mat-raised-button type="submit" *ngIf="id" [disabled]="updateForm.invalid">
+          Update
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

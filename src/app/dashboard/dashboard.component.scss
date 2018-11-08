@@ -1,0 +1,39 @@
+$blue-color: #4683e8;
+
+@mixin container-position() {
+  margin: 2rem auto;
+  width: 80vw;
+}
+
+.merchants {
+  &--header {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: $blue-color;
+    @include container-position();
+  }
+
+  &__table {
+    @include container-position();
+  }
+
+  &--button {
+    @include container-position();
+  }
+}
+
+p {
+  padding: 1rem;
+}
+
+.mat-column-delete {
+  color: darkred !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mat-column-merchant_type {
+  &:hover {
+    cursor: pointer;
+  }
+}

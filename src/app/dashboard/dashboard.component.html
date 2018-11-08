@@ -1,0 +1,60 @@
+<!--<ngx-loading-bar [includeSpinner]="false" [color]="'#4683e8'"></ngx-loading-bar>-->
+
+<h2 class="merchants--header">Merchants Info</h2>
+
+<div class="mat-elevation-z8 merchants__table">
+
+  <table mat-table [dataSource]="merchantSource" *ngIf="merchantSource && cryptoPrice" style="width: 100%; max-width: 95vw;">
+
+    <ng-container matColumnDef="merchant_type">
+      <th mat-header-cell *matHeaderCellDef> Merchant</th>
+      <td mat-cell *matCellDef="let element; let i = index" (click)="onUpdate(i)"> <b> {{element.merchant_type}}</b></td>
+    </ng-container>
+
+    <ng-container matColumnDef="item_sold">
+      <th mat-header-cell *matHeaderCellDef> Item Sold</th>
+      <td mat-cell *matCellDef="let element"> {{element.item_sold}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount_invoiced_crypto">
+      <th mat-header-cell *matHeaderCellDef> Amount Invoiced (crypto)</th>
+      <td mat-cell *matCellDef="let element"> {{element.amount_invoiced | number:'.8' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="currency_used_for_payments">
+      <th mat-header-cell *matHeaderCellDef> Currency Used</th>
+      <td mat-cell *matCellDef="let element"> {{element.currency_used_for_payments}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="crypto_price">
+      <th mat-header-cell *matHeaderCellDef> Crypto Price (USD)</th>
+      <td mat-cell *matCellDef="let element"> {{cryptoPrice[element.currency_used_for_payments] | currency}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount_invoiced_usd">
+      <th mat-header-cell *matHeaderCellDef> Amount Invoiced (USD)</th>
+      <td mat-cell *matCellDef="let element"> {{cryptoPrice[element.currency_used_for_payments] | PriceCalculator: element.amount_invoiced | currency}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element; let i = index" (click)="onDelete(i)"> X </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+  <div *ngIf="error">
+    <p>{{error}}</p>
+  </div>
+
+
+</div>
+
+<div class="merchants--button">
+  <button mat-raised-button (click)="addMerchant()">
+    Add More
+  </button>
+</div>

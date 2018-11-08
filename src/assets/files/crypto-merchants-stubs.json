@@ -1,0 +1,7 @@
+[{
+  "uid": "1234",
+  "merchant_type": "ShirtTown",
+  "item_sold": "T-shirt",
+  "amount_invoiced": 1.43219876,
+  "currency_used_for_payments": "BTC"
+}]
