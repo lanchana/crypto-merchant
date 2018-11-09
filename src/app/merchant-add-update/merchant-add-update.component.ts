@@ -29,7 +29,6 @@ export class MerchantAddUpdateComponent implements OnInit {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id);
 
-
     this.updateForm = new FormGroup({
       'merchantType': new FormControl('', Validators.required),
       'itemSold': new FormControl('', Validators.required),

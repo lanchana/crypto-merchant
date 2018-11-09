@@ -16,5 +16,4 @@ const addUpdateRoutes: Routes = [{
 })
 
 export class MerchantAddUpdateRoutingModule {
-
 }

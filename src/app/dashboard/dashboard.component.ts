@@ -15,8 +15,13 @@ import {Router} from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   merchantSource: MatTableDataSource<MerchantModel>;
-  displayedColumns: string[] = ['merchant_type', 'item_sold', 'amount_invoiced_crypto', 'currency_used_for_payments', 'crypto_price', 'amount_invoiced_usd', 'delete'];
-  error: boolean;
+  displayedColumns: string[] = ['merchant_type',
+    'item_sold',
+    'amount_invoiced_crypto',
+    'currency_used_for_payments',
+    'crypto_price',
+    'amount_invoiced_usd',
+    'delete'];
   cryptoPrice: CryptoPriceModel;
 
   constructor(private merchantService: MerchantService,
