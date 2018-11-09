@@ -4,9 +4,10 @@ import {zip} from 'rxjs';
 
 @Injectable()
 export class CryptoPriceService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {
+  }
 
-  getBtcPrice(){
+  getBtcPrice() {
     return this.httpClient.get('https://api.coinmarketcap.com/v2/ticker/1/');
   }
 

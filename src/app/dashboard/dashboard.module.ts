@@ -5,6 +5,7 @@ import {MatButtonModule, MatTableModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {CryptoPriceService} from '../shared/services/crypto-price.service';
 import {PriceCalculatorPipe} from '../shared/pipes/price_calculator.pipe';
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {PriceCalculatorPipe} from '../shared/pipes/price_calculator.pipe';
     CommonModule,
     MatTableModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    LoadingBarHttpClientModule
   ],
   providers: [
     CryptoPriceService
